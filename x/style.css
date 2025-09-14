@@ -1,0 +1,45 @@
+html{
+}
+body{
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #151515;
+	color: #FFF;
+}
+hr{
+  border: 1px solid dimgray;
+}
+p{
+	text-align: center;
+}
+a
+{
+	color:whitesmoke;
+	text-decoration: none;
+}
+a:hover
+{
+	color:lightgray;
+	text-decoration: none;
+}
+a:active
+{
+	color:dimgray;
+	text-decoration: none;
+}
+.box {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.box div {
+	width: 136px;
+	height: 182px;
+}
+.portrait{
+	height:128px;
+	border-radius: 50%;
+}

@@ -1,0 +1,278 @@
+@font-face {
+	font-family: "Stereofunk";
+	src: url("https://www.extensionless.com/css/fonts/Stereofunk.ttf");
+}
+.stereo {
+	font-family: "Stereofunk";
+}
+@font-face {
+	font-family: "VoiceInMyHead";
+	src: url("https://www.extensionless.com/css/fonts/VoiceInMyHead.otf");
+}
+.vimh {
+	font-family: "VoiceInMyHead";
+	color: black;
+}
+@font-face {
+	font-family: "Choplin";
+	src: url("https://www.extensionless.com/css/fonts/choplin.otf");
+}
+.chop 
+{
+	font-family: Choplin;
+	color: black;
+}
+.chopTomaNeverni 
+{
+	font-family: Choplin!important;
+	color: tomato!important;
+	text-align:center;
+}
+.naravni
+{
+	font-family: math!important;
+	color: tomato!important;
+}
+h2
+{
+	font-family: Choplin;
+	color: tomato;
+}
+a
+{
+	color:tomato!important;
+	text-decoration:none!important;
+}
+
+.screen
+{ 	
+	cursor: pointer;
+	transition: 0.72s;
+	opacity: 0.69; 
+	border: 1px solid coral;
+	margin: 0.1em;
+}
+
+.screen:hover {opacity: 1; border-color: tomato;}
+	
+.screen-wide
+{
+	width: 87%;
+}
+.screens-short
+{
+	width:43%;
+}
+	#features-selecta
+	{
+		display: none!important;
+	}
+	#features-misfit
+	{
+		display: none!important;
+	}
+	#features-switch-shift
+	{
+		display: block!important;
+	}
+.x10big
+{	
+	border-left: 2px solid rgba(255,228,196,.6);
+	border-right: 2px solid rgba(255,228,196,.6);
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+margin-top: -18px;
+margin-left: 200px;
+letter-spacing: 8px;
+font-size: 13px;
+padding: 6px;
+padding-right: 0px;
+padding-bottom: 0px;
+font-family: VoiceInMyHead;
+position: absolute;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 1200px) and (min-width: 768px){
+	.screen-wide
+	{
+		width:72%;
+	}
+	.screens-short
+	{
+		width:36%;
+	}
+	#features-selecta
+	{
+		display: block!important;
+	}	
+	#features-misfit
+	{
+		display: none!important;
+	}
+	#features-switch-shift
+	{
+		display: none!important;
+	}
+}
+@media only screen and (max-width: 768px){
+	.screen-wide
+	{
+		width:27%;
+	}
+	.screens-short
+	{
+		width:27%;
+	}
+	#features-selecta
+	{
+		display: none!important;
+	}
+	#features-misfit
+	{
+		display: block!important;
+	}
+	#features-switch-shift
+	{
+		display: none!important;
+	}
+}
+.hide{
+	display:none;
+}
+.link{
+	cursor:pointer!important;
+	color:tomato!important;
+}
+input[type=text]:focus {
+  background-color: BlanchedAlmond;
+}
+input[type=text] {
+  background-image: url('search.svg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+.my-nav-tab
+{
+	
+	background-color: tomato;
+	color: white!important;
+}
+
+.my-nav-tab-a
+{
+	border-top: 1px solid bisque;
+	border-left: 1px solid bisque;
+	border-right: 1px solid bisque;
+	background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100%);
+	color: tomato;
+}
+.my-nav-tab-c
+{
+	background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100%);
+	color: tomato;
+}
+.my-nav-tab-b
+{
+	border: 1px solid tomato;
+background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100%);
+	color: tomato;
+}
+.my-nav 
+{
+	font-size:22px;
+	padding:7px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Redirect /?username=anyvalue to /anyvalue (External Redirect)
+RewriteCond %{THE_REQUEST} \s/\?username=([^&\s]+) [NC]
+RewriteRule ^$ /%1? [R=301,L]
+
+# Avoid applying the rule to existing files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Internally rewrite /anyvalue to /?username=anyvalue (Internal Rewrite)
+RewriteRule ^([^/]+)/?$ /?username=$1 [L]
