@@ -10,8 +10,7 @@
 		<meta name="description" content="Extensionless User Profile"/>
 		<meta name="author" content="Lovre Šimunović"/>
 		<title>download ↓ extensionless</title>
-		<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
-		<link href="https://extensionless.com/catalog/css/flag-icon.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/x10.css"/>
 		<meta property="og:url" content="https://www.catalog.extensionless.com"/>
 		<meta property="og:image" content="https://www.extensionless.com/extensionless.jpg"/>
 		<meta property="og:title" content="extensionless catalog"/>
@@ -55,9 +54,13 @@
 		<?php include '../where-am-i-navigation.php';?>
 	</div>
 	<div class="row">
+	<h2 style="text-align:center;">↓ download ↓</h3>
+	</row>
+	<hr/>
+	<div class="row">
 	<?php include '../intro-away.php';?>
 	<div class="col-md-4">
-		<p class="chopTomaNeverni">
+		<p class="chop">
 			</u> |<a href="setup.exe"> download </a>| </u>
 			<span>
 				 setup 
@@ -67,59 +70,25 @@
 				 |► 
 			</span>
 			<br/>
-			<span style="color:tomato;" class="chop">				
-				<small>
+			<span class="chop">				
 				 ~ total
-				<u>
 				| space 
-				<small>
 				on
-				</small>
-				</small>
 				 disk 
-				<big> 
-				 | 			
-				 </u>6
-				</big>
-				<small>
-				 7<u> 
-				</small>
-				</u>
-				<b> ϻ </b>
-				 в
-			</span>
+				 | 	67 megabytes
+				 </span>
 			<hr/>
-				<small>
-				<small> + | 0. • • | megabyte </small>
-				</small>  initial ↓ download </small>
+			 	<span class="chop">	0 megabyte nitial ↓ download 
 				<br/>
-				<small> + <small> mandatory </small> in-setup </small> download <small> ≈ <small> 36 </small>megabytes</small><br/>
-				<small><small>⨦</small>? </small>.net framework update 
-				<hr/>
-				<span>
-				get
-				</span>
+				+ mandatory in-setup download  ≈  36 megabytes<br/>
+				⨦ ? .net framework update
 				
-				<small>
-				<span class="vimh">
-				 | extensionless | 
+				</span><hr/><span class="chop">get	</span>
+				<span class="vimh">	 | extensionless | 
+					</span>
+			<span class="chop">	
+				for windows 10
 				</span>
-				</small>
-				
-				<small>
-				<small>
-				for
-				</small>
-				windows
-				</small>
-				<small>
-				<small>
-				<small>
-				 - I 
-				 </small></small> o </small>
-				<span class="chop">_|<u>█</u></span>
-				<span style="color: gray!important"> - I - </span> 
-				</small>
 			</p>
 		</div>	
     </div>

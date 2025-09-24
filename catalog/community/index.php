@@ -11,8 +11,8 @@
 		<meta name="description" content="Community Boilerplates"/>
 		<meta name="author" content="Lovre Šimunović"/>
 		<title>Community Catalog</title>
-		<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
-		<link href="css/flag-icon.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/x10.css"/>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<meta property="og:url" content="https://www.catalog.extensionless.com/community/"/>
 		<meta property="og:image" content="https://www.extensionless.com/extensionless.jpg"/>
@@ -29,23 +29,16 @@
 
 
 
-<div id="myloader" style="width:150px; margin:0 auto; position:relative;">
-
-<div class="spinner">
-	  <div class="cube1"></div>
-	  <div class="cube2"></div>
-	</div>
-</div>
-
-<div id="mybody" style="display:none;" class="container">
+<div class="container">
 <div class="row">
 <?php include '../../header.php';?>
+<?php include '../../where-am-i-navigation.php';?>
 </div>
 <div class="row">
-	<h2 style="color:dimgray; text-align:center;">
+	<h2 style="text-align:center;">
 	
 	community
-	<img style="vertical-align:middle;"  width="25px" src="https://extensionless.com/images/community.svg"/>
+	<img style="vertical-align:middle;"  width="38px" src="/images/community.svg"/>
 	catalog</h2>
 	<hr/>
 	<?php 
@@ -69,44 +62,47 @@
 	
 	
 	echo "
+	<div class='row'>	<div class='col-md-10'>
 	<p>
-	
 	<a href='?page=1&order=title&direction=$newdirection1'>$title</a>
 	<input style='border: none;
-  border-bottom: 2px solid tomato; border-top: 1px outset tomato; border-left: 2px solid tomato; border-right: 2px solid tomato; border-radius:12px; max-width:150px' id='search-input' placeholder='search catalog...'>
-	<a style='margin-left:90px;' href='?page=1&order=ratings&direction=$newdirection2'>$ratings</a>
+  border-bottom: 2px solid tomato; border-top: 1px outset tomato; border-left: 2px solid tomato; border-right: 2px solid tomato; border-radius:12px; max-width:150px' id='search-input' placeholder='search catalog...'></p>
+</div>
+	<div class='col-md-2'>
+	<p>
+	<a href='?page=1&order=ratings&direction=$newdirection2'>$ratings</a>
 
 	<a style='margin-left:16px;' href='?page=1&order=country&direction=$newdirection4'>$country</a>
-	</p>
+</p>
+</div></div>
 	<hr/>";
-	
-$servername = "extensionless.com";
-$username = "lovrenco_x10sionless2020";
-$db = "lovrenco_x10sionless";
-$password = "diegoRecoba8*";
+	$servername = "localhost";
+	$username = "root";
+	$db = "x10ss";
+	$password = "";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $db);
+	// Check connection
+	if ($conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	}
+
+				
+
 if($_GET["order"]=='zipsize') {$order ='ZipSize';}
 if($_GET["order"]=='hits') {$order ='Hits';}
 if($_GET["order"]=='title') {$order ='Username';}
-if($_GET["order"]=='ratings') {$order ='Count(RatingsID)';}
+if($_GET["order"]=='ratings') {$order ='Count(ratings.ID)';}
 if($_GET["order"]=='date') {$order ='DateTime';}
 if($_GET["order"]=='country') {$order ='CountryID';}
 
 $newestdirection=strtoupper($_GET["direction"]);
 
 $sql = 
-"SELECT BoilPack.ID, BoilPack.Zip, BoilPack.DateTime, BoilPack.ExProID, BoilPack.Hits, BoilPack.ZipSize, ExPro.Username, ExPro.CountryID, ExPro.DonateUrl, Count(RatingsID)
-FROM BoilPack
-INNER JOIN ExPro ON BoilPack.ExProID=ExPro.ExProID
-LEFT JOIN Ratings ON BoilPack.ID=Ratings.BoilPackID
-
-GROUP BY ID
+"SELECT boilpack.ID, boilpack.ZipSize, boilpack.Hits, boilpack.BoilerplateZip, boilpack.DateTime, boilpack.ExProID, boilpack.Username, boilpack.CountryID, boilpack.DonateURL, Count(ratings.ID)
+FROM boilpack
+LEFT JOIN ratings ON boilpack.ID= ratings.ForID
 ORDER BY $order
 $newestdirection";
 
@@ -123,7 +119,7 @@ for($x = 0; $x < $arrlength; $x++) {
 	echo '<div class="chop">
 	<div style="display:inline;">
 	<a href="download.php?ID='.$id.'" title="Download: '.$rows[$x]["Username"].'.zip">
-	<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+	<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
 	</a>
 	</div>
 	<div style="
@@ -135,28 +131,28 @@ for($x = 0; $x < $arrlength; $x++) {
     vertical-align: middle;
 	"
 	class="vimh" title="Username: '.$rows[$x]["Username"].'">
-	' .$rows[$x]["Username"].'
+	<a href="../../x/?username='.$rows[$x]["Username"].'">' .$rows[$x]["Username"].'</a>
 	</div>
 	<div style="display:inline-block; float:right;">
-	<small style="font-size:9px;" title="'.$rows[$x]["Count(RatingsID)"].' likes"> '.$rows[$x]["Count(RatingsID)"].'
-	<img width="15px" src="https://extensionless.com/images/like.svg"/>
+	<small style="font-size:9px;" title="'.$rows[$x]["Count(ratings.ID)"].' likes"> '.$rows[$x]["Count(ratings.ID)"].'
+	<img width="16px" src="/images/like.svg"/>
 	</small>
 	|
-	<span style="vertical-align: top;" title="Country: ' .$rows[$x]["CountryID"].'" class="flag-icon flag-icon-'. strtolower($rows[$x]["CountryID"]).'"></span>
+	<span style="vertical-align: middle;" title="Country: ' .$rows[$x]["CountryID"].'" class="flag-icon flag-icon-'. strtolower($rows[$x]["CountryID"]).'"></span>
 	</div>
 	<div style="margin-top:-5px;">
 	<small style="font-size: 11px;">
 	<a href="?page=1&order=hits&direction='.$newdirection5.'">'.$hits.'</a>
 	<small>
-	<img height="8px" src="https://extensionless.com/images/level-down-alt.svg" /> '.
+	<img height="12px" src="/images//mouse.svg" /> '.
 	$rows[$x]["Hits"]
 	. ' | </small>
 	<a href="?page=1&order=zipsize&direction='.$newdirection6.'">'.$zipsize.'</a>
-	<img width="8px" src="https://extensionless.com/images/align-justify.svg" />
-	<small>' . round(($rows[$x]["ZipSize"]) / 1024 , 1). ' MB</small>
+	<img width="12px" src="/images/hard.svg" />
+	<small>' . round(($rows[$x]["ZipSize"]) / 1024 , 1). ' megabytes</small>
 	|
 	<a href="?page=1&order=date&direction='.$newdirection3.'">'.$date.'</a>
-	<img width="10px" src="https://extensionless.com/images/date.svg" />
+	<img width="12px" src="../../images/calendar.svg" />
 	<small class="mypopups" >'.$rows[$x]["DateTime"].'
 	</small>	</small>
 	</div>
@@ -181,72 +177,17 @@ $conn->close();
 
 ?><hr/>
 <a href="../quickstart/">
-<p style="color:Tomato;text-align:center;" class="vimh">
+<p style="text-align:center; padding: 5px;" class="my-nav-tab-a vimh">
 		Quickstart
-		<img style="vertical-align:middle;"  width="36px" src="https://extensionless.com/images/quick-active.svg"/>
+		<img style="vertical-align:middle;"  width="22px" src="../../images/quickstart.svg"/>
 		Catalog
 </p>
 </a></div>
-
-<hr/>
 	<div class="row">
 <?php include '../../footer.php';?>
 	</div>
 	</div>
-	<script src="../assets/docs.js"></script>
-<style>
 
-.spinner {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-}
-
-.cube1, .cube2 {
-  background-color: #333;
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  
-  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
-  animation: sk-cubemove 1.8s infinite ease-in-out;
-}
-
-.cube2 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-@-webkit-keyframes sk-cubemove {
-  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
-  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
-  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
-  100% { -webkit-transform: rotate(-360deg) }
-}
-
-@keyframes sk-cubemove {
-  25% { 
-    transform: translateX(42px) rotate(-90deg) scale(0.5);
-    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
-  } 50% { 
-    transform: translateX(42px) translateY(42px) rotate(-179deg);
-    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
-  } 50.1% { 
-    transform: translateX(42px) translateY(42px) rotate(-180deg);
-    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
-  } 75% { 
-    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-  } 100% { 
-    transform: rotate(-360deg);
-    -webkit-transform: rotate(-360deg);
-  }
-}
-
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 $( document ).ready(function() {

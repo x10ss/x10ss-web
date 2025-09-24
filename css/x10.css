@@ -1,13 +1,6 @@
 @font-face {
-	font-family: "Stereofunk";
-	src: url("https://www.extensionless.com/css/fonts/Stereofunk.ttf");
-}
-.stereo {
-	font-family: "Stereofunk";
-}
-@font-face {
 	font-family: "VoiceInMyHead";
-	src: url("https://www.extensionless.com/css/fonts/VoiceInMyHead.otf");
+	src: url("fonts/Voice In My Head.otf");
 }
 .vimh {
 	font-family: "VoiceInMyHead";
@@ -15,12 +8,27 @@
 }
 @font-face {
 	font-family: "Choplin";
-	src: url("https://www.extensionless.com/css/fonts/choplin.otf");
+	src: url("fonts/choplin.ttf");
+}
+@font-face {
+	font-family: "Choplin-Book";
+	src: url("fonts/Choplin-Book.ttf");
 }
 .chop 
 {
 	font-family: Choplin;
 	color: black;
+}
+.chop-book
+{
+	font-family: Choplin-Book;
+	color: black;
+	
+}
+.book
+{
+	text-align: center;
+	font-size:11px;
 }
 .chopTomaNeverni 
 {
@@ -266,7 +274,6 @@ background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
 }
 .video {
   position: absolute;

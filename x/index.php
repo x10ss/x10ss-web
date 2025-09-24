@@ -10,42 +10,40 @@
 		<meta name="description" content="Extensionless User Profile"/>
 		<meta name="author" content="Lovre Šimunović"/>
 		<?php
-						$servername = "extensionless.com";
-						$username = "lovrenco_x10sionless2020";
-						$db = "lovrenco_x10sionless";
-						$password = "diegoRecoba8*";
-					
-						$conn = new mysqli($servername, $username, $password, $db);
-						// Check connection
-						if ($conn->connect_error) {
-						  die("Connection failed: " . $conn->connect_error);
-						}
+		$servername = "localhost";
+	$username = "root";
+	$db = "x10ss";
+	$password = "";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $db);
+	// Check connection
+	if ($conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	}
+
+
 						$user = $_GET["username"];
 											
 											
-						$sqlpro = "SELECT ID, Email, ExProID, DonateUrl, Dob, Username, CountryID FROM ExPro WHERE Username = '$user'";
+						$sqlpro = "SELECT ID, ExProID, DonateUrl, DateTime, Username, CountryID,BoilerplateZip FROM boilpack WHERE Username = '$user'";
 						$resultpro = $conn->query($sqlpro);
 						$rowpro = $resultpro->fetch_assoc();
 						
 						$userexproid = $rowpro["ExProID"];
 						$usercountryid = $rowpro["CountryID"];
 					
-						///////////////////////////preseli iz exproa prp a clr brajo zadrži za sebe i dodat downloads field
-						$sqlboil = "SELECT ID, DateTime, Zip, ZipSize, Hits FROM BoilPack WHERE ExProID = '$userexproid'";
-						$resultboil = $conn->query($sqlboil);
-						$rowboil = $resultboil -> fetch_assoc();
-						/////////////////hit++
 						$ratings=0;
 						$ratingsranking = 0;
-						$sqlratings = "SELECT BoilPackID, Count(RatingsID) FROM Ratings GROUP BY BoilPackID ORDER BY Count(RatingsID) DESC";
+						$sqlratings = "SELECT ForID, Count(ratings.ID) FROM ratings GROUP BY ForID ORDER BY Count(ratings.ID) DESC";
 						$resultratings = $conn->query($sqlratings);
 					
 						while($temprank = mysqli_fetch_array($resultratings))
 						{
 							$ratingsranking++;
-							if($temprank["BoilPackID"]==$rowboil["ID"])
+							if($temprank["ForID"]==$rowpro["ID"])
 							{
-								$ratings=$temprank["Count(RatingsID)"];
+								$ratings=$temprank["Count(ratings.ID)"];
 								break;
 							}								
 						}
@@ -55,7 +53,7 @@
 					
 			
 		?>
-		<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/x10.css"/>
 		<link href="https://extensionless.com/catalog/css/flag-icon.css" rel="stylesheet">
 		<meta property="og:url" content="https://www.catalog.extensionless.com"/>
 		<meta property="og:image" content="https://www.extensionless.com/extensionless.jpg"/>
@@ -73,10 +71,11 @@
 				<?php include '../header.php';?>
 				<?php include '../where-am-i-navigation.php';?>
 			</div>
-			<div class="row">
+			<div style="text-align: center;" class="row">
 				<h2>x.extensionless.com
 			</h2>
 			</div>
+			<hr/>
 			<div class="row">
 				<div class="user-profile">
 					<p title="overall community ranking"/><?php echo $ratingsranking;?> ≛ rank</p>

@@ -11,8 +11,8 @@
     <meta name="description" content="Extensionless Catalog"/>
     <meta name="author" content="Lovre Šimunović"/>
 	<title>Catlog</title>
-	<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
-	<link href="css/flag-icon.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/x10.css"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
 	<meta property="og:url" content="https://www.catalog.extensionless.com"/>
 	<meta property="og:image" content="https://www.extensionless.com/extensionless.jpg"/>
 	<meta property="og:title" content="extensionless catalog"/>
@@ -28,10 +28,13 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container"><div class="row">
+		<?php include '../header.php';?>
+		<?php include '../where-am-i-navigation.php';?>
+	</div>
 	<div class="row">
-	
-<?php include '../header.php';?>
+	<h2 style="text-align:center;"><img src="/images/catalog.svg" width="36px"> catalog</h2>
+	<hr/>
 </div>
 	<div class="row">
 	 
@@ -40,7 +43,7 @@
 	<a href="community/?page=1&order=ratings&direction=desc">
 	<p style="color:Tomato;text-align:center;" class="vimh">
 	 Community
-	<img width="36px" style="vertical-align:middle;"  src="https://extensionless.com/images/community-active.svg"/>
+	<img width="36px" style="vertical-align:middle;"  src="/images/community.svg"/>
 	Catalog
 	<br/>
 	<small style="text-align:center;" class="chop">
@@ -52,10 +55,10 @@
 
 
 	<?php
-	$servername = "extensionless.com";
-	$username = "lovrenco_x10sionless2020";
-	$db = "lovrenco_x10sionless";
-	$password = "diegoRecoba8*";
+	$servername = "localhost";
+	$username = "root";
+	$db = "x10ss";
+	$password = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $db);
@@ -67,12 +70,11 @@
 
 
 	$sql = 
-	"SELECT BoilPack.ExProID, BoilPack.ID, BoilPack.DateTime, ExPro.Username, ExPro.CountryID, ExPro.DonateUrl, Count(RatingsID)
-	FROM BoilPack
-	INNER JOIN ExPro ON BoilPack.ExProID= ExPro.ExProID
-	LEFT JOIN Ratings ON BoilPack.ID= Ratings.BoilPackID
+	"SELECT boilpack.ExProID, boilpack.ID, boilpack.DateTime, boilpack.Username, boilpack.CountryID, boilpack.DonateUrl, Count(ratings.ID)
+	FROM boilpack
+	LEFT JOIN ratings ON boilpack.ID= ratings.ForID
 	GROUP BY ID
-	ORDER BY Count(RatingsID) DESC
+	ORDER BY Count(ratings.ID) DESC
 	LIMIT 19"
 	;
 	$result = $conn->query($sql);
@@ -117,24 +119,35 @@
 		overflow: hidden;"'; 
 		echo 'id="rownum'. $i .'">
 		<br/>
-		<small class="chop">
+		<small><small class="chop">
 		<b>';
 		
 		if($i==0)
 		{
-			echo'<img style="vertical-align:bottom;" width="20px" src="https://extensionless.com/images/trophy.svg"/>';
+			echo'<img width="12px" src="/images/trophy.svg"/>';
 		}
 		if($i!==18) echo ' # ' . $i + 1;
 		echo '</b>';
-		if($i==0) echo ' ranking';
-		echo '</small>
+		if($i==0) echo ' ranking </small></small>
+		<hr/>
 		<br/>
 		
-		<span class="vimh" ><small title="' . $rows[$i]["Count(RatingsID)"] . ' likes"> 
-		' . $rows[$i]["Count(RatingsID)"] . '<img style="vertical-align:middle;" width="15px" src="https://extensionless.com/images/like.svg"/> 
+		<span class="vimh" title="' . $rows[$i]["Count(ratings.ID)"] . ' likes"> 
+		' . $rows[$i]["Count(ratings.ID)"] . '<img style="vertical-align:middle;" width="27px" src="/images/ranking.svg"/>
+		<a href="/x/?username=' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
+		</span>
 		
-		</small>
-		<a href="https://x.extensionless.com/?username=' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
+		<br/>
+		<small class="chop">';
+		else echo '</small></small>
+		<hr/>
+		<br/>
+		
+		<span class="vimh" title="' . $rows[$i]["Count(ratings.ID)"] . ' likes"> 
+		' . $rows[$i]["Count(ratings.ID)"] . '<img style="vertical-align:middle;" width="18px" src="/images/like.svg"/> 
+		
+	
+		<a href="/x/?username=' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
 		</span>
 		
 		<br/>
@@ -252,9 +265,9 @@
 	<div class="col-md-6">
 	
 	<p style="text-align:center;" class="vimh">
-		Quickstart
-		<img style="vertical-align:middle;"  width="36px" src="https://extensionless.com/images/quick-active.svg"/>
-		Catalog
+		<a href="/catalog/quickstart">Quickstart
+		<img style="vertical-align:middle;"  width="28px" src="/images/quickstart.svg"/>
+		Catalog</a>
 		<br/>
 		<small style="text-align:center;" class="chop">
 		The Extensionless built-in Boilerplate Packs. Download the Zip files completely free
@@ -287,7 +300,7 @@
 		</a>
 		<br/>
 		</small>
-		<span  class="link" id="show-pyck">→ PYCKa</span> • <span class="vimh">ZIP</span> | jpg, png, gif<br/>
+		<span  class="link" id="show-pyck">→ PYCKa</span> • <span class="vimh">ZIP</span> | jpg, png, gif <br/>
 		<small id="pyck-show" class="hide">
 		<b>postcard.png</b> | postcard guidelines<br/>
 		<b>og-image.png</b> | open graph image<br/>
@@ -314,7 +327,7 @@
 		</a>
 		<br/>
 		</small>
-		<span class="link" id="show-mark">→ MarkUpper</span> • <span class="vimh">ZIP</span> | html, xml<br/>
+		<span class="link" id="show-mark">→ MarkUpper</span> • <span class="vimh">ZIP</span> |html, xml<br/>
 		<small id="mark-show" class="hide">
 		<b>index.html</b> | body head script link<br/>
 		<b>books.xml</b> | random structure<br/>
@@ -345,7 +358,7 @@
 		</a>
 		<br/>
 		</small>
-		<span  class="link" id="show-quirk">→ Quirkster</span> • <span class="vimh">ZIP</span> | various<br/>
+		<span  class="link" id="show-quirk">→ Quirkster</span> • <span class="vimh">ZIP</span> |  various </br/>
 		<small id="quirk-show" class="hide">
 		<b>joomla.xml</b> | joommla extension xml<br/>
 		<b>macro.xlsm</b> | excel macro example<br/>
@@ -379,7 +392,7 @@
 		</a>
 		<br/>
 		</small>
-		<span  class="link" id="show-fav">→ Fav 0 Lit</span> • <span class="vimh">ZIP</span> | various<br/>
+		<span  class="link" id="show-fav">→ Fav 0 Lit</span> • <span class="vimh">ZIP</span> | <img width="12px" src="/images/favolit.svg"/> various <br/>
 		<small id="fav-show" class="hide">	
 		<b>joomla.xml</b> | joommla extension xml<br/>
 		<b>macro.xlsm</b> | excel macro example<br/>
@@ -402,7 +415,6 @@
 		<hr/>
 		</div>
 	 </div>
-	 <hr/>
 		 <div class="row">
 			<?php include '../footer.php';?>
 		 </div>

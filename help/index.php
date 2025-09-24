@@ -12,7 +12,7 @@
     <meta name="description" content="extensionless help"/>
     <meta name="author" content="Lovre Šimunović"/>
 	<title>Help</title>
-	<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/x10.css"/>
 	<link href="css/flag-icon.css" rel="stylesheet">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<meta property="og:url" content="https://www.extensionless.com"/>
@@ -29,77 +29,16 @@
 </head>
 <body>
 
-		<div class="container">
-
-<div class="row">
+			<div class="container">
 	
-
-	<div style='text-align:left;'>
-	<small style='color:bisque; border: 1px solid bisque ;border-top: 0px; border-bottom-left-radius:6px;  border-bottom-right-radius:6px;border-top-right-radius:3px;border-top-left-radius:3px; padding:4px; 
-background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100%);position:absolute; top:0px;right:15%;'>
-	|
-	<a style='vertical-align:middle; margin-left:5px;' title='Extensionless Facebook Page' target='_blank' href='https://www.facebook.com/TheExtensionless'>
-	<img width='22px' src='https://www.extensionless.com/images/facebook.svg'/>
-	</a>
-	|
-	<a style='vertical-align:middle; margin-left:5px;'  title='Extensionless Twitter Profile - @ex10sionless' target='_blank'  href='https://www.twitter.com/ex10sionless/'>
-	<img width='22px' src='https://www.extensionless.com/images/twitter.svg'/>
-	</a>
-	|
-	<a style='vertical-align:middle; margin-left:5px;' target='_blank'   title='Extensionless Instgram Profile - @extensionless'  href='https://www.instagram.com/extensionless/'>
-	<img width='22px' src='https://www.extensionless.com/images/instagram.svg'/>
-	</a>
-	|
-	<a style='vertical-align:middle; margin-left:5px;' target='_blank'   title='Extensionless YouTube Channel' href='https://www.youtube.com/@extensionless/'>
-	<img height='22px' src='https://www.extensionless.com/images/youtube.svg'/>
-	</a>
-	|
-	<a style='vertical-align:middle; margin-left:5px;' target='_blank' title='Extensionless LinkedIn Profile' href='https://www.linkedin.com/company/extensionless/'>
-	<img width='22px' src='https://www.extensionless.com/images/linkedin.svg'/>
-	</a>
-	|
-	<a style='vertical-align:middle; margin-left:5px;' target='_blank' title='Extensionless LinkedIn Profile' href='https://www.tiktok.com/@extensionless'>
-	<img height='18px' src='https://www.extensionless.com/images/tiktok.svg'/>
-	</a>
-	|
-	<a style='vertical-align:middle; margin-left:5px;' target='_blank' href='mailto:hi@extensionless.com' title='E-Mail To - hi@extensionless.com' style='display:inline;' >
-	<img  width='22px' style='display:inline'  src='https://www.extensionless.com/images/email.svg'/>
-	</a>
-	|
-	</small>
-	<br/> 
-	<br/> 
-	<a href='https://www.extensionless.com/'>
-	<h1 style='color:black; vertical-align:middle;' class='vimh'>
-	extensionless
-	<img style='display:inline; vertical-align:middle; width:69px;' src='https://www.extensionless.com/images/extensionless-logo.svg'/>
-	</h1>
-	<small class='x10big my-nav-tab-c'>BETA</small>
-	<div>
+	<div class="row">
+		<?php include '../header.php';?>
+		<?php include '../where-am-i-navigation.php';?>
+	</div>
+	<div class="row">
+		<h2 style="text-align:center;"><img width="36px" src="/images/help.svg"> help</h2>
+	</div>
 	<hr/>
-	<p class='vimh'>
-	<small>
-	
-	<a  class='my-nav my-nav-tab' title='Home → extensionless.com' href='https://www.extensionless.com'>
-	<img style='vertical-align:middle;margin-top:-3px;' width='15px' src='https://www.extensionless.com/images/home-active.svg'/>
-	home
-	</a>
-	<a class='my-nav my-nav-tab' title='Catalog → catalog.extensionless.com' href='https://catalog.extensionless.com'>
-		<img style='vertical-align:middle;margin-top:-3px;' width='15px' src='https://www.extensionless.com/images/catalog-active.svg'/>
-		catalog
-		</a>
-	 
-		<span class='my-nav my-nav-tab-a' title='Help → help.extensionless.com'>
-		<img width='15px' src='https://www.extensionless.com/images/help.svg'/>
-		<b>
-		help
-		</b>
-		</span>
-	</small>
-	
-	</p>
-	<hr/>
-	</div>  </div>
 	<div class="row">
 <div class="col-md-8">
  <div class="video-container">
@@ -228,67 +167,21 @@ faq
 
 </div>
 </div>
-
-<hr/>
 <hr/>
 <div class="row">
 	<h2>
-	<a class="chop" target="_blank" href="https://support.extensionless.com/" title="Support → support.extensionless.com">
+	<a class="chop" target="_blank" href="/support" title="Support → support.extensionless.com">
 	<p style="text-align:center; color:tomato;">
-	<img src="https://www.extensionless.com/images/support.svg" style="vertical-align:top;" width="55px"/>
+	<img src="/images/support.svg" style="vertical-align:top;" width="55px"/>
 	<br/>
 	support
 	</p>
 	</a>
 	</h2>
 </div>
-<hr/>
 <div class="row">
-	
-	<p style="margin-top:40px; text-align: center;" class="vimh" id="my-share">
-
-	<img style="vertical-align: middle;" src="https://www.extensionless.com/images/share-alt-square.svg" width="27px"/> SHARE</p>
-		<div id="my-addtoany" style="display:none;">
-<div class="a2a_kit a2a_kit_size_27 a2a_default_style" id="my_centered_buttons">
-<a title="share via pinterest" class="a2a_button_pinterest"></a>
-<a title="share via reddit" class="a2a_button_reddit"></a>
-<a title="share via whatsapp" class="a2a_button_whatsapp"></a>
-<a title="share via facebook messenger" class="a2a_button_facebook_messenger"></a>
-<a title="share via facebook" class="a2a_button_facebook"></a>
-<a title="share via twitter" class="a2a_button_twitter"></a>
-<a title="share via linkedin" class="a2a_button_linkedin"></a>
-<a title="share via tumblr" class="a2a_button_tumblr"></a>
+  <?php include '../footer.php';?>
 </div>
-<br/>
-
-<script async src="https://www.extensionless.com/ata.js">v</script>
-<script>var a2a_config = a2a_config || {};
-a2a_config.icon_color = "tomato";</script>
-<style type="text/css">
-#my_centered_buttons { display: flex; justify-content: center; }
-#my-share{cursor:pointer;}
-</style>
-</div>
-<script>
-
-var ms = document.getElementById("my-share");
-var ata = document.getElementById("my-addtoany");
-ms.onclick = function() {
-  if(ata.style.display == "none")
-  ata.style.display = "block";
-else ata.style.display = "none";
-}
-	</script>
-	<hr/>
-	<p class="chop" style="text-align:center;">
-	<small class="chop">
-	<span class="vimh">2024</span>
-	&copy; extensionless
-	</small>
-	</p>
-	<br/>
-	<hr/>	
-  </div>
 	</div>
 	</body>
 		 	<script>

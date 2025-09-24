@@ -1,10 +1,10 @@
 <?php 
 if( isset($_GET["ID"]) )
 {
-	$servername = "extensionless.com";
-	$username = "lovrenco_x10sionless2020";
-	$db = "lovrenco_x10sionless";
-	$password = "diegoRecoba8*";
+	$servername = "localhost";
+	$username = "root";
+	$db = "boilpack";
+	$password = "";
 
 
 	$conn = new mysqli($servername, $username, $password, $db);
@@ -21,7 +21,7 @@ if( isset($_GET["ID"]) )
 		while($row = $result->fetch_assoc()) 
 		{
 			header('Content-type: application/zip');
-		echo $row["Zip"];
+		echo $row["BoilerplateZip"];
 		}
 	}else {echo "shiothappens";echo $_GET["ID"];}
 	$conn->close();

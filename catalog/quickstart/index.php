@@ -13,7 +13,7 @@
 	    <meta name="description" content="Quickstart Boilerplates"/>
     <meta name="author" content="Lovre Šimunović"/>
 	<title>Quickstart catalog</title>
-	<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/x10.css"/>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<meta property="og:url" content="https://catalog.extensionless.com/quickstart/"/>
 	<meta property="og:image" content="https://www.extensionless.com/extensionless.jpg"/>
@@ -28,15 +28,16 @@
 </head>
 </head>
 	<body>
-	<div class="container">
+	<div class="container chop">
 
 <div class="row">
 <?php include '../../header.php';?>
 	</div>
+	<hr/>
 	<div class="row">
-	<h2  style="color:dimgray; text-align:center;">
+	<h2  style="text-align:center;">
 		quickstart
-		<img style="vertical-align:middle;"  width="25px" src="https://extensionless.com/images/quick.svg"/>
+		<img style="vertical-align:middle;"  width="33px" src="/images/quickstart.svg"/>
 		catalog
 	</h2>
 	<hr/>
@@ -45,19 +46,33 @@
 		<small style="color:Tomato;"  class="vimh">
 		zip 
 		</small>
-		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/> 
+		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/> 
 		</a>
-		<b>Boil Bundle </b>|<small> all </small>
+		<b>Boil Bundle </b>|<small>  all </small>
+		</p>
+		<p class="book"> 
+		<img width="18px" src="/images/boilpack.svg"/>  
 		</p>
 		<hr/>
 		<p class="chop"  style="text-align:center;">
-		<small>js, cs, sql </small>|<b> Code In </b>
+		<small>js, cs, sql </small> | <b> Code In </b>
 		<a href="somezip.zip">
-		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/> 
+		<img style="vertical-align:middle;margin-top:-3px;" width="27px" src="/images/download.svg"/> 
 		<small  style="color:Tomato;" class="vimh">
 		zip 
 		</small>
 		</a>
+		</p>
+		<p class="book">  <img width="25px" src="/images/codein.svg"/>
+			<br/>
+		<b>script.js</b> | vanilla javascript functions<br/>
+		<b>queries.sql</b> | insert update select join<br/>
+		<b>react.js</b> | react.js component class<br/>
+		<b>db.php</b> | php database connection<br/>
+		<b>jquery.min.js</b> | jquery minyfied<br/>
+		<b>jquery.js</b> | jquery functions<br/>
+		<b>class.php</b> | php class<br/>
+		<b>class.cs</b> | c# class
 		</p>
 		<hr/>
 		<p  class="chop" style="text-align:center;">
@@ -65,68 +80,117 @@
 		<small style="color:Tomato;"  class="vimh">
 		zip 
 		</small>
-		 <img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+		 <img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
 		</a>
-		<b>Scrap Tome </b>| <small>pdf, doc</small> 
+		<b>Scrap Tome </b> | <small>pdf, doc</small> 
+		</p>
+		<p class="book"> <img width="24px" src="/images/scraptome.svg"/>  
+			<br/>
+		<b>glyphs.rtf</b> | ascii supported glyphs<br/>
+		<b>cv.doc</b> | curriculum vitae<br/>
+		<b>cv.pdf</b> | curriculum vitae<br/>
+		<b>letter.doc</b> | cover letter<br/>
+		<b>letter.pdf</b> | cover letter
 		</p>
 		<hr/>
 		<p class="chop"  style="text-align:center;">
-		<small>super</small> |<b> Fav O'Lit</b>
+		<small>super</small> | <b> Fav O'Lit</b>
 		<a href="somezip.zip">
-		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+		<img style="vertical-align:middle;margin-top:-3px;" width="20px" src="/images/download.svg"/>
 		<small  style="color:Tomato;" class="vimh">
 		zip 
 		</small>
 		</a>
 		</small>
+		</p>
+		<p class="book">  
+		<img width="20px" src="/images/favolit.svg"/>
+		<br/>
+		<b>joomla.xml</b> | joommla extension xml<br/>
+		<b>macro.xlsm</b> | excel macro example<br/>
+		<b>unity.cs</b> | a class for unity in c#<br/>
+		<b>joomla.php</b> | joomla plugin php<br/>
+		<b>unity.js</b> | a class for unity in js<br/>
+		<b>font.ttf</b> | font example<br/>
+		<b>font.otf</b> | font example
+		</p>
 		<hr/>
 		<p class="chop"  style="text-align:center;">
 		<a href="somezip.zip">
 		<small  style="color:Tomato;" class="vimh">
 		zip 
 		</small>
-		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+		<img style="vertical-align:middle;margin-top:-3px;" width="22px" src="/images/download.svg"/>
 		</a>
-		<b>PYCK- a</b> |<small> jpg, png, gif</small>
+		<b>PYCK- a</b>  | <small> jpg, png, gif</small>
 		</p>
+		<p class="book"> <img width="22px" src="/images/pycka.svg"/> 
+		<br/>
+		<b>postcard.png</b> | postcard guidelines<br/>
+		<b>og-image.png</b> | open graph image</p>	
 		<hr/>
 		<p class="chop"  style="text-align:center;">
-		<small>html, xml </small>| <b>Mark Upper</b>
+		<small>html, xml | </small><b>Mark Upper</b>
 		<a href="somezip.zip">
-		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
 		<small  style="color:Tomato;" class="vimh">
 		zip 
 		</small> 
 		</a></p>
+		<p class="book"> <img width="22px" src="/images/markupper.svg"/>
+		<br/>
+		<b>index.html</b> | body head script link<br/>
+		<b>books.xml</b> | random structure<br/>
+		<b>rss.xml</b> | rss specification
+		</p>
 		<hr/>
 		<p  class="chop" style="text-align:center;">
 		<a href="somezip.zip">
 		<small  style="color:Tomato;" class="vimh">
 		zip 
 		</small> 
-		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+		<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
 		</a>
 		<b>Quirkster</b> |<small> various</small>
 		</p>
+		<p class="book">
+		   <img width="27px" src="/images/quirkster.svg">  
+			<br/>
+		<b>joomla.xml</b> | joommla extension xml<br/>
+		<b>macro.xlsm</b> | excel macro example<br/>
+		<b>unity.cs</b> | a class for unity in c#<br/>
+		<b>joomla.php</b> | joomla plugin php<br/>
+		<b>unity.js</b> | a class for unity in js<br/>
+		<b>font.ttf</b> | font example<br/>
+		<b>font.otf</b> | font example</p>
 		<hr/>
 		<p  class="chop" style="text-align:center;">
-		<small>pgn </small>| <b>Zugzwang</b>
+		<small>pgn </small> | <b>Zugzwang</b>
 		<a href="somezip.zip">
-		 <img style="vertical-align:middle;margin-top:-3px;" width="25px" src="https://extensionless.com/images/download.svg"/>
+		 <img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
 		 <small style="color:Tomato;" class="vimh">
 		zip 
 		</small>
 		</a>
 		</p>
+		<p class="book">
+		<img width="18px" src="/images/zugzwang.svg"/> 
+		<br/>
+		<b>joomla.xml</b> | joommla extension xml<br/>
+		<b>macro.xlsm</b> | excel macro example<br/>
+		<b>unity.cs</b> | a class for unity in c#<br/>
+		<b>joomla.php</b> | joomla plugin php<br/>
+		<b>unity.js</b> | a class for unity in js<br/>
+		<b>font.ttf</b> | font example<br/>
+		<b>font.otf</b> | font example</p>
 			<hr/>
-			<a href="../community/?page=1&order=ratings&direction=desc"">
-<p style="color:Tomato;text-align:center;" class="vimh">
+			<a href="../community/?page=1&order=ratings&direction=desc">
+<p style="text-align:center; padding: 5px;" class="my-nav-tab-a vimh">
 	 Community
-	<img width="36px" style="vertical-align:middle;"  src="https://extensionless.com/images/community-active.svg"/>
+	<img width="27px" style="vertical-align:middle;"  src="/images/community.svg"/>
 	Catalog 
 </p>
 </a>
-<hr/>
 </div>
 	<div class="row">
 <?php include '../../footer.php';?>

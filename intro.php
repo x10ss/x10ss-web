@@ -11,9 +11,9 @@
 	windows
 	</h2>
 	<hr/>
-	<a id="download-current-setup-version" style="display:inline;" title="download setup.exe" href="https://download.extensionless.com/setup.exe">
+	<a id="download-current-setup-version" style="display:inline;" title="download setup.exe" href="/download/setup.exe">
 		<p style="padding:17px; background-color: tomato; text-align:center; color:white;" class="chop">
-			<img title="download" style="vertical-align:middle; width:25px;" src="images/cloud-download-alt.svg"/>
+			<img title="download" style="vertical-align:middle; width:25px;" src="/images/download-active.svg"/>
 			download setup.exe
 			<small class="chop" style="color:white;" id="x10version"></small>
 			 | 

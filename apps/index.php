@@ -12,7 +12,7 @@
 	<meta name="description" content="extensionless download - free file extension utility for windows"/>
     <meta name="author" content="Lovre Šimunović"/>
 	<title>download.extensionless.com</title>
-	<link rel="stylesheet" type="text/css" href="https://www.extensionless.com/css/x10.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/x10.css"/>
 	<link href="css/flag-icon.css" rel="stylesheet">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<meta property="og:url" content="https://download.extensionless.com"/>
@@ -29,14 +29,18 @@
 <body>
     <div class="chop container">
 <div class="row">
-<?php include '../../header.php';?>
-  </div>
-	<div class="row text-center">
+<?php include '../header.php';?>	
+	<?php include '../where-am-i-navigation.php';?>
+  </div><div class="row">
+	<h2 style="text-align:center;"><img src="/images/apps.svg" width="36px">apps</h3>
+	</row>
+	<hr/>
+	<div style="margin-bottom:15px;" class="row text-center">
 	<div class="col-md-1"></div>
 	  <div class="card col-md-10 box-shadow">
           <div class="card-header">
-           <img style='display:inline; vertical-align:middle; width:36px;' src='https://www.extensionless.com/images/8bw.svg'/>
-			<b><h2 class="vimh">core+</h2></b>
+           <img style='display:inline; vertical-align:middle; width:36px;' src='/images/core.svg'/>
+			<b><h2 class="vimh" style="color: tomato;">core+</h2></b>
           </div>
           <div style="text-align:center;" class="card-body">
             <h2>→ all the extensionless features in your one core+ app</h2>
@@ -57,7 +61,7 @@
 			<div class="col-md-6">
 			<ul  class="list-unstyled" style="text-align:left;">
 		  <li>
-		  <button type="button" class="btn btn-lg btn-block btn-warning">
+		  <button type="button" class="btn btn-lg btn-block btn-dark">
 		  buy now | → |
 		  </button>
 		  </li>
@@ -65,9 +69,8 @@
 		  <li>
 		  <h4 class="card-title pricing-card-title">
 		  • $1 |
-		  <small class="text-muted">
-		  year
-		  </small>
+		  <img src="/images/infinity.svg"  width="32px"/>
+		
 		  </h4>
 		  </li>
 		  </ul>
@@ -76,7 +79,88 @@
           </div>
         </div>
 	    <div class="col-md-1"></div>
+</div>
+<hr/>
 
+<div class="row text-center">
+	    <div class="card col-md-4 box-shadow">
+          <div class="card-header">
+           <img style='display:inline; vertical-align:middle; width:36px;' src='/images/other.svg'/>
+			<b><h2 class="vimh">forge</h2></b>
+          </div>
+		  
+          <div style="text-align:center;" class="card-body">
+           
+			
+			<div class="row">
+			<div class="col-md-6">
+			<ul class="list-unstyled" style="text-align:right;">
+				<li>→ create new file extensions</li>
+            </ul>
+			</div>
+			<div class="col-md-6">
+			<ul  class="list-unstyled" style="text-align:left;">
+		  <li>
+		  <button type="button" class="btn btn-lg btn-block btn-light">|↓|</button>
+			</div>
+          </div>
+          </div>
+        </div>
+		
+		
+		    <div class="card col-md-4 box-shadow">
+          <div class="card-header">
+           <img style='display:inline; vertical-align:middle; width:36px;' src='/images/other.svg'/>
+			<b><h2 class="vimh">switchbox</h2></b>
+          </div>
+		  
+          <div style="text-align:center;" class="card-body">
+         
+			
+			<div class="row">
+			<div class="col-md-6">
+			<ul class="list-unstyled" style="text-align:right;">
+					<li>→ <b>switchbox</b></li> 
+				<li>→ <b>auxiliary</b> file extension <b>library</b></li>
+            </ul>
+			</div>
+			<div class="col-md-6">
+			<ul  class="list-unstyled" style="text-align:left;">
+		  <li>
+		  <button type="button" class="btn btn-lg btn-block btn-light">|↓|</button>
+			</div>
+          </div>
+          </div>
+        </div>
+		
+		  <div class="card col-md-4 box-shadow">
+          <div class="card-header">
+           <img style='display:inline; vertical-align:middle; width:36px;' src='/images/other.svg'/>
+			<b><h2 class="vimh">db</h2></b>
+          </div>
+		  
+          <div style="text-align:center;" class="card-body">
+        
+			
+			<div class="row">
+			<div class="col-md-6">
+			<ul class="list-unstyled" style="text-align:right;">
+				<li>→ <b>quickstart</b></li>
+				<li>→ <b>community</b></li>
+				<li>→ your <b>account</b></li>
+				<li>→ your boilerplate pack <b>exhibit</b></li>
+            </ul>
+			</div>
+			<div class="col-md-6">
+			<ul  class="list-unstyled" style="text-align:left;">
+		  <li>
+		  <button type="button" class="btn btn-lg btn-block btn-light">|↓|</button>
+			</div>
+          </div>
+          </div>
+        </div>
+</div>
+<hr/>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -92,8 +176,9 @@
         text: 'Thumbnail'
       });
     </script><div class="row">
-	<?php include '../../footer.php';?>
-  </div> </div>
+	<?php include '../footer.php';?>
+  </div> 
+  </div>
 </body>
 
 </html>
