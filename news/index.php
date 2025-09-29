@@ -27,7 +27,6 @@
 		<div class="container">
 			<div class="row">
 				<?php include '../header.php';?>
-				<?php include '../where-am-i-navigation.php';?>
 			</div>
 		<div class="row">
 <h2 style="text-align:center">
@@ -36,8 +35,7 @@ extensionless news
 <hr/>
 		<div class="row">
 					
-<div class="col-md-4">	<h3>	android app
-		</h3>
+<div class="col-md-4" id="android"><h3>android app</h3>
 <img style="width:80%;"  src="../images/google-play.jpg"/>	
 		<p style="font-size:12px"  class="chop-book">This Android app serves as a companion tool for a Windows desktop application that enhances the “New File” context menu in Windows Explorer. The desktop app allows users to create, customize, and manage templates for new files of various types (e.g., documents, code files, configuration files).<br/><br/>
 
@@ -46,7 +44,7 @@ The Android app displays template packs created or shared for the Windows applic
 By bridging mobile and desktop, the app provides users with a portable way to discover and manage templates, streamlining the process of adding new, ready-to-use file types directly from the Windows context menu.</p>
 		</div>	
 <div class="col-md-4">
-<h3>v 1.0.0.0 release notes</h3>
+<h3 id="release">v 1.0.0.0 release notes</h3>
 <img style="width:80%;"  src="../images/release.jpg"/>	
 		<p style="font-size:12px" class="chop-book">Extensionless 1.0.0.0 version comes along with the following feature list implemented:<br/><br/>
 
@@ -67,7 +65,7 @@ RELEASE DATE: June 15th 2020.<br/><br/>
 APPLICATION SIZE: 88 MB
 </p>	</div>
 <div class="col-md-4">	
-	<h3>extensionless beta</h3>
+	<h3 id="beta">extensionless beta</h3>
 	
 <img style="width:80%;" src="../images/beta.jpg"/>	
 		<p style="font-size:12px" class="chop-book">

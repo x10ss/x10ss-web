@@ -65,10 +65,6 @@ function includeHTML() {
 	
 	<div class="row">
 		<?php include 'header.php';?>
-		<?php include 'where-am-i-navigation.php';?>
-	</div>
-	<div class="row">
-		
 	</div>
 	<div class="row">
 	<?php include 'intro.php';?>
@@ -109,7 +105,6 @@ function includeHTML() {
 	Lovre Simunovic • From • Hr 
 	</p>
 	</a>-->
-	<hr/>
 	</div>
    <div class="col-md-4">
 	<p style="letter-spacing: 5px; text-align:center;">
@@ -124,15 +119,13 @@ function includeHTML() {
 	<hr/>
 	<p class="my-nav-tab-b" style="padding:5px; text-align: center; margin: 0 auto; margin-bottom:20px; position: relative;">
 	
-	<a class="chop" style="color:tomato" href="catalog/community/?page=1&order=ratings&direction=desc">
-	<small class="chop">
 
 	
 	<?php 
 	$servername = "localhost";
-	$username = "root";
-	$db = "x10ss";
-	$password = "";
+	$username = "lowwwre_admin";
+	$db = "lowwwre_x10ss";
+	$password = "lhiz4j0";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $db);
@@ -145,7 +138,7 @@ function includeHTML() {
 	
 	$sql = 
 	"SELECT boilpack.ExProID, boilpack.ID, boilpack.DateTime, boilpack.Username, boilpack.CountryID, boilpack.DonateUrl, Count(ratings.ID)
-	FROM boilpack
+	FROM lowwwre_x10ss
 	LEFT JOIN ratings ON boilpack.ID= ratings.ForID
 	GROUP BY ID
 	ORDER BY Count(ratings.ID) DESC
@@ -156,19 +149,23 @@ function includeHTML() {
 	  // output data of each row
 	  // output data of each row
 	$rows = $result->fetch_all(MYSQLI_ASSOC);}
-	 echo ' <small style="vertical-align: middle; font-size:20px;" class="vimh" title="4 likes">
+	 echo ' 
+	<a class="chop" style="color:tomato" href="x/?username='.$rows[0]["Username"].'">
+	<small class="chop">
+	<small style="vertical-align: middle; font-size:20px;" class="vimh" title="4 likes">
 	'.$rows[0]["Count(ratings.ID)"].'<img style="vertical-align:middle;" width="18px" src="/images/like.svg"/> 
 	</small>';
-	echo '<span class="vimh">';
+	echo '<span style="font-size:18px; vertical-align:middle;" class="vimh">';
 	  
 	  echo $rows[0]["Username"];
 	  
 	  echo '</span>';?>
-	
+	</a>
+	<a href="/catalog/community/?page=1&order=ratings&direction=desc">
 	<img style="float:right; margin-right: 5px;margin-top:-20%x; vertical-align:middle;" src="images/community.svg" width="18px"/>
-	
+	</a>
 </small>	
-</a>	
+	
 </p>
     <hr/>
 </div>
@@ -191,7 +188,7 @@ window.location="/news";	});
  
 </script>
 </p>
-<hr/>
+<hr style="margin-bottom: 8px"/>
 
 	
 	<div title='coming soon' id='android-app' style='text-align:center;border-bottom: 1px dotted tomato; '>
@@ -201,7 +198,7 @@ window.location="/news";	});
 	
 	<script>
 	$('#android-app').click(function (){
-		window.location='/news';
+		window.location='/news/#android';
 	});
 	</script>
 	</div>
@@ -227,13 +224,13 @@ Download setup.exe from here and run the Extensionless utility app from your des
 	
 	<script>
 	$('#extensionless-beta').click(function (){
-		window.location='news';
+		window.location='news/#beta';
 	});
 	</script>
 	</div>
 
 	
-	<div title='Extensionless 1.0.0.0 version comes along with the following feature list implemented:
+	<div st title='Extensionless 1.0.0.0 version comes along with the following feature list implemented:
 
 User > DASHBOARD - |1.1|
 reload, forge, warehouse, usage indicators, apps, log.
@@ -266,7 +263,7 @@ APPLICATION SIZE: 88 MB' id='v-1-0-0-0-release-notes' style='text-align:center;b
 	
 	<script>
 	$('#v-1-0-0-0-release-notes').click(function (){
-		window.location='/news';
+		window.location='/news/#release';
 	});
 	</script>
 	</div>

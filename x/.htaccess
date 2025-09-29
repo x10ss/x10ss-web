@@ -1,8 +1,9 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /x/
 
-# Rewrite /x/?username=bobi to /x/bobi
-RewriteCond %{THE_REQUEST} \s/x/\?username=([^\s&]+) [NC]
-RewriteRule ^x/$ /x/%1? [R=301,L]
-
-# Internally rewrite /x/bobi to /x/index.php?username=bobi
-RewriteRule ^x/([^/]+)/?$ /x/index.php?username=$1 [L,QSA]
+    # Rewrite /x/bobi  →  /x/?username=bobi
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^/]+)/?$ index.php?username=$1 [L,QSA]
+</IfModule>

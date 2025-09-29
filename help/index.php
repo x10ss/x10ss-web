@@ -33,7 +33,6 @@
 	
 	<div class="row">
 		<?php include '../header.php';?>
-		<?php include '../where-am-i-navigation.php';?>
 	</div>
 	<div class="row">
 		<h2 style="text-align:center;"><img width="36px" src="/images/help.svg"> help</h2>
@@ -44,21 +43,22 @@
  <div class="video-container">
 
 	<video id="videoHelp" autoplay="" controls="" style="width: 100%;">  
-		<source src="https://extensionless.com/videos/extensionless-test.mp4" type="video/mp4" />
+		<source src="/video/extensionless.mp4" type="video/mp4" />
 	</video>
   </div>
+  <br/>
 </div>
 <div class="col-md-4">
 </br>
 <h3 style="text-align:center" class="chop">
 faq
-<img src="https://www.extensionless.com/images/forum.svg" style="vertical-align:top;" width="25px"/>
+<img src="/images/forum.svg" style="vertical-align:top;" width="25px"/>
 </h3>
 	<p id='Howtoinstallrunanduninstall' class='link chop' style='text-align:center;'>
 	► How to install run and uninstall
 	</p>
 	<small class='chop' id='Howtoinstallrunanduninstallshow' style='display:none'>
-	<p>Install from <a href="https://download.extensionless.com">download.extensionless.com</a> or download the setup.exe file <a href="https://download.extensionless.com/setup.exe">here</a>.</p><p>When you install the app you'll find the shorcut on your desktop and programs under start... If you're having troubles running the app dowload <a href="https://download.extensionless.com/pq.application">this file</a>.</p><p>You can uninstall the app by going to your add/remove programs Windows menu.</p><p>View <a href="https://www.download.extensionless.com/publish.htm">publish details</a>...</p>
+	<p>Install from <a href="/download">download.extensionless.com</a> or download the setup.exe file <a href="https://download.extensionless.com/setup.exe">here</a>.</p><p>When you install the app you'll find the shorcut on your desktop and programs under start... If you're having troubles running the app dowload <a href="https://download.extensionless.com/pq.application">this file</a>.</p><p>You can uninstall the app by going to your add/remove programs Windows menu.</p><p>View <a href="https://www.download.extensionless.com/publish.htm">publish details</a>...</p>
 	</small>
 	<script>
 	
@@ -86,8 +86,8 @@ faq
 	<p>To have your boilerplate pack exhibit zip file showcased under the Community Catalog in:</p>
 <ul>
 <li> your app > catalog > community</li>
-<li><a href="https://www.catalog.extensionless.com" >catalog.extensionless.com</a> (if in top 3)</li>
-<li><a href="https://catalog.extensionless.com/community/">catalog.extensionless.com/community/</a></li>
+<li><a href="/catalog" >catalog.extensionless.com</a> (if in top 3)</li>
+<li><a href="/community/">catalog.extensionless.com/community/</a></li>
 </ul>
 <p>you need to create your Extensionless profile <b>in your Windows Extensionless installation</b> under "username" > account > create account... afterwards click the <b>exhibit</b> link in the same menu and upload the file.
 </p>
@@ -168,16 +168,19 @@ faq
 </div>
 </div>
 <hr/>
-<div class="row">
-	<h2>
-	<a class="chop" target="_blank" href="/support" title="Support → support.extensionless.com">
-	<p style="text-align:center; color:tomato;">
-	<img src="/images/support.svg" style="vertical-align:top;" width="55px"/>
-	<br/>
+<div class="row" style="margin-bottom:13px; text-align:center;">
+	<div class="col-md-6">
+	<a style="vertical-align:middle; font-size: 24px;" class="chop" href="/support" title="support">
+	<img src="/images/support.svg" width="44px"/>
 	support
-	</p>
 	</a>
-	</h2>
+	</div>
+	<div class="col-md-6">
+	<a style="vertical-align:middle; font-size: 24px;" class="chop" href="/news" title="news">
+	<img src="/images/news-active.svg"  width="44x"/>
+	news
+	</a>
+	</div>
 </div>
 <div class="row">
   <?php include '../footer.php';?>
@@ -187,16 +190,16 @@ faq
 		 	<script>
  		let vid = document.getElementById('videoHelp');
  		function setCurTime6() { 
-  vid.currentTime=6;
+  vid.currentTime=2;
 }
 function setCurTime12() { 
-  vid.currentTime=12;
+  vid.currentTime=60;
 }
 function setCurTime15() { 
-  vid.currentTime=15;
+  vid.currentTime=120;
 }
 function setCurTime16() { 
-  vid.currentTime=16;
+  vid.currentTime=150;
 } 
  	</script>
 </html>

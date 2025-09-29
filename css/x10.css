@@ -2,17 +2,23 @@
 	font-family: "VoiceInMyHead";
 	src: url("fonts/Voice In My Head.otf");
 }
+
 .vimh {
 	font-family: "VoiceInMyHead";
 	color: black;
 }
 @font-face {
 	font-family: "Choplin";
-	src: url("fonts/choplin.ttf");
+	src: url("fonts/Choplin.ttf");
 }
 @font-face {
 	font-family: "Choplin-Book";
 	src: url("fonts/Choplin-Book.ttf");
+}
+.quickstart
+{
+	border: 1px solid lightgray;
+	padding-top:15px;
 }
 .chop 
 {
@@ -27,8 +33,13 @@
 }
 .book
 {
-	text-align: center;
+	text-align:justify;
 	font-size:11px;
+}
+.book2
+{
+	text-align:center;
+	font-size:12px;
 }
 .chopTomaNeverni 
 {
@@ -248,6 +259,7 @@ input[type=text] {
 
 .my-nav-tab-a
 {
+	padding: 5px;
 	border-top: 1px solid bisque;
 	border-left: 1px solid bisque;
 	border-right: 1px solid bisque;
@@ -256,14 +268,25 @@ input[type=text] {
 }
 .my-nav-tab-c
 {
+	
+	padding: 5px;
 	background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100%);
 	color: tomato;
 }
 .my-nav-tab-b
 {
+	padding: 5px;
 	border: 1px solid tomato;
-background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100%);
+background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%,  100%);
 	color: tomato;
+}
+.my-x
+{
+	padding: 11px;
+	border: 1px solid lightgray;
+	border-radius: 2px;
+background: linear-gradient(180deg, blanchedalmond 0%, white 100%);
+	color: black;
 }
 .my-nav 
 {

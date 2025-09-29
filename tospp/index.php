@@ -27,7 +27,6 @@
 		<div class="container">
 			<div class="row">
 				<?php include '../header.php';?>
-				<?php include '../where-am-i-navigation.php';?>
 			</div>
 		<div class="row">
 <h2>

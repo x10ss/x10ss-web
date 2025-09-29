@@ -20,42 +20,15 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
-		<script>
-		function includeHTML() {
-			var z, i, elmnt, file, xhttp;
-			z = document.getElementsByTagName("*");
-			for (i = 0; i < z.length; i++) {
-			elmnt = z[i];
-			
-			file = elmnt.getAttribute("w3-include-html");
-			if (file) {
-			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			if (this.readyState == 4) {
-			var mySubString = this.responseText.substring(
-			this.responseText.lastIndexOf("Version:</B></TD><TD WIDTH=\"5\"><SPACER TYPE=\"block\" WIDTH=\"10\" /></TD><TD>") + 74,
-			this.responseText.lastIndexOf("</TD></TR><TR><TD COLSPAN=\"3\">&nbsp;</TD></TR><TR><TD><B>Publisher:")
-			);
-			if (this.status == 200) {document.getElementById("x10version").innerHTML = " v " + mySubString;}
-			if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-			elmnt.removeAttribute("w3-include-html");
-			}
-			}
-			xhttp.open("GET", file, true);
-			xhttp.send();
-			}}
-		}
-	</script>
 	</head>
 	<body>
 	<div class="container">
 	<div class="row">
 		<?php include '../header.php';?>
-		<?php include '../where-am-i-navigation.php';?>
 	</div>
 	<div class="row">
-	<h2 style="text-align:center;">↓ download ↓</h3>
-	</row>
+	<h2 style="text-align:center;">download</h3>
+	</div>
 	<hr/>
 	<div class="row">
 	<?php include '../intro-away.php';?>
@@ -67,7 +40,6 @@
 				<small>
 					 .exe
 				</small>
-				 |► 
 			</span>
 			<br/>
 			<span class="chop">				
@@ -92,7 +64,6 @@
 			</p>
 		</div>	
     </div>
-	<hr/>
 	<div class="row">
 	<?php include '../footer.php';?>
 	</div>

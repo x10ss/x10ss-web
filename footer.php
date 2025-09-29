@@ -1,4 +1,4 @@
-		<hr/>
+		<hr style="margin-top: 15px;"/>
 		<?php 
 	if($_SERVER['HTTP_HOST']=="download.extensionless.com" && $_SERVER['REQUEST_URI']=="/") $ic="↓"; else $ic="•";
 	?>
@@ -31,7 +31,7 @@
 	</style><br/><br/>
 <hr/>
 		<div clas="row">
-	<p class="chop" style="text-align: center;">
+	<p class="chop" style="font-size: 15px;text-align: center;">
 	<u>
 	 | 
 	<a href="/tospp" title="service terms and conditions/+/|► -(D-~-((•○. win. app. •○ )|||=I+I=-|_I|I|">
@@ -43,6 +43,41 @@
 	 |
 	</u>
 	</p>
+	</div>
+	<div clas="row">
+	<p class="chop" style="font-size: 13px;text-align: center;">
+	<u>
+	 | 
+	<a href="/" title="home">
+	home</a>
+	 |
+	<a href="/catalog" title="boilerplate pack catalog">
+	catalog
+	</a>
+ 	 |
+	<a href="/catalog/community/?page=1&order=ratings&direction=desc" title="community boilerplate pack catalog">
+	community
+	</a>
+	 |
+	<a href="/catalog/quickstart" title="quickstart boilerplate pack catalog">
+	quickstart
+	</a>
+	|
+	<a ref="/help" title="help">
+	help
+	</a>
+	 | 
+	 
+	<a href="/news" title="latest news">
+	news
+	</a>
+	 |
+	<a href="/support" title="support articles">
+	support
+	</a>
+	 |	
+	</u>
+	</p>
 	<hr/>
 	</div>
 	<p class="chop" style="text-align:center;">
@@ -51,14 +86,5 @@
 	&copy; extensionless
 	</small>
 	</p>
-	<hr/><p style="text-align: center;"><?php echo $ic?></p>
-	<script>
-	var ms = document.getElementById("my-share");
-	var ata = document.getElementById("my-addtoany");
-	ms.onclick = function(){
-	if(ata.style.display == "none")
-	ata.style.display = "block";
-	else ata.style.display = "none";
-	}
-	</script>
+	<hr/>
 	

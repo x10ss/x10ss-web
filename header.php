@@ -1,5 +1,5 @@
 	<?php
-if($_SERVER['REQUEST_URI']=="/catalog/" || $_SERVER['REQUEST_URI']=="/catalog/quickstart/" || str_contains($_SERVER['REQUEST_URI'],"/catalog/community/") || str_contains($_SERVER['REQUEST_URI'],"/x/"))
+if($_SERVER['REQUEST_URI']=="/catalog/")
 	{
 		$cat="<span class='my-nav my-nav-tab-a' title='Catalog → catalog.extensionless.com'>
 		<img style='vertical-align:middle;margin-top:-3px;' width='15px' src='/images/catalog.svg'/>
@@ -98,5 +98,6 @@ background: linear-gradient(180deg, rgba(255,235,205,0.5) 0%, BlanchedAlmond 100
 	$hel
 	</small>
 	</p>
-	</div>";
+	</div>
+	<hr/>";
 	?>

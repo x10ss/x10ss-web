@@ -1,5 +1,5 @@
 <p class="chop">
-¿ what are the
+what is
 <span class="vimh">extensionless</span>
-apps used for ?
+ ?
 </p>

@@ -29,10 +29,9 @@
 <body>
     <div class="chop container">
 <div class="row">
-<?php include '../header.php';?>	
-	<?php include '../where-am-i-navigation.php';?>
+<?php include '../header.php';?>
   </div><div class="row">
-	<h2 style="text-align:center;"><img src="/images/apps.svg" width="36px">apps</h3>
+	<h2 style="text-align:center;">extensionless apps</h3>
 	</row>
 	<hr/>
 	<div style="margin-bottom:15px;" class="row text-center">

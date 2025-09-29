@@ -1,6 +1,4 @@
     <div class="col-md-8">
-	<?php include '../what-is-extensionless.php';?>
-	<hr/>
 	<h2 style="text-align:center;">
 	a free <img style="vertical-align:middle;" height="25px" src="/images/file.svg"/>
 	file
@@ -26,7 +24,5 @@
 			<small><small><small>(initial download)</small></small></small>
 		</p>
 	</a>
-	<hr/>
-	<?php include 'misc-menu.php';?>
 	<hr/>
 	</div>

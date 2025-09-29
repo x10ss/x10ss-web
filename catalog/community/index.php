@@ -8,7 +8,7 @@
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<meta name="description" content="Community Boilerplates"/>
+		<meta name="descrtiption" content="Community Boilerplates"/>
 		<meta name="author" content="Lovre Šimunović"/>
 		<title>Community Catalog</title>
 		<link rel="stylesheet" type="text/css" href="../../css/x10.css"/>
@@ -26,26 +26,19 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	</head>
 <body>
-
-
-
 <div class="container">
 <div class="row">
 <?php include '../../header.php';?>
-<?php include '../../where-am-i-navigation.php';?>
 </div>
 <div class="row">
 	<h2 style="text-align:center;">
-	
 	community
 	<img style="vertical-align:middle;"  width="38px" src="/images/community.svg"/>
 	catalog</h2>
 	<hr/>
 	<?php 
-	
 	$order=$_GET["order"];
 	$direction=$_GET["direction"];
-	
 	$title = $order=="title"?$direction=="asc"?"▲":"▼":"○";
 	$ratings = $order=="ratings"?$direction=="asc"?"▲":"▼":"○";
 	$date=$order=="date"?$direction=="asc"?"▲":"▼":"○";
@@ -59,23 +52,37 @@
 	$newdirection4= $order=="country"?$direction=="asc"?"desc":"asc":"desc";
 	$newdirection5= $order=="hits"?$direction=="asc"?"desc":"asc":"desc";
 	$newdirection6= $order=="zipsize"?$direction=="asc"?"desc":"asc":"desc";
-	
-	
+ 
+
 	echo "
-	<div class='row'>	<div class='col-md-10'>
-	<p>
-	<a href='?page=1&order=title&direction=$newdirection1'>$title</a>
+	
+	<div class='row'>	
+	<div class='col-md-10'>
+	
 	<input style='border: none;
-  border-bottom: 2px solid tomato; border-top: 1px outset tomato; border-left: 2px solid tomato; border-right: 2px solid tomato; border-radius:12px; max-width:150px' id='search-input' placeholder='search catalog...'></p>
+	  border-bottom: 
+	  2px solid tomato; 
+	  border-top: 1px outset tomato;
+	  border-left: 2px solid tomato;
+	  border-right: 2px solid tomato;
+	  border-radius:12px;
+	  max-width:250px'
+	  id='search'
+	  placeholder=' search'>
+
+  </p>
 </div>
 	<div class='col-md-2'>
 	<p>
-	<a href='?page=1&order=ratings&direction=$newdirection2'>$ratings</a>
+	<a href='?page=1&order=ratings&direction=$newdirection2&title='>$ratings</a>
 
-	<a style='margin-left:16px;' href='?page=1&order=country&direction=$newdirection4'>$country</a>
+	<a style='margin-left:16px;' href='?page=1&order=country&direction=$newdirection4&title='>$country</a>
 </p>
 </div></div>
 	<hr/>";
+
+
+
 	$servername = "localhost";
 	$username = "root";
 	$db = "x10ss";
@@ -98,13 +105,19 @@ if($_GET["order"]=='date') {$order ='DateTime';}
 if($_GET["order"]=='country') {$order ='CountryID';}
 
 $newestdirection=strtoupper($_GET["direction"]);
+	
+	
+	$issearch = $_GET["title"];
+	$sqlwhereclause =$issearch == "" ? "" : "WHERE boilpack.Username LIKE '%$issearch%'";
 
-$sql = 
-"SELECT boilpack.ID, boilpack.ZipSize, boilpack.Hits, boilpack.BoilerplateZip, boilpack.DateTime, boilpack.ExProID, boilpack.Username, boilpack.CountryID, boilpack.DonateURL, Count(ratings.ID)
-FROM boilpack
-LEFT JOIN ratings ON boilpack.ID= ratings.ForID
-ORDER BY $order
-$newestdirection";
+
+
+$sql ="SELECT boilpack.ExProID, boilpack.ID, boilpack.Hits,boilpack.ZipSize, boilpack.DateTime, boilpack.Username, boilpack.CountryID, boilpack.DonateUrl, Count(ratings.ID)
+	FROM boilpack
+	LEFT JOIN ratings ON boilpack.ID= ratings.ForID
+	$sqlwhereclause
+	GROUP BY ID	ORDER BY $order $newestdirection"
+	;
 
 $result = $conn->query($sql);
 
@@ -117,44 +130,37 @@ for($x = 0; $x < $arrlength; $x++) {
    if (((int)($x/8))+1==$_GET["page"]){
    $id= $rows[$x]["ID"];
 	echo '<div class="chop">
-	<div style="display:inline;">
-	<a href="download.php?ID='.$id.'" title="Download: '.$rows[$x]["Username"].'.zip">
-	<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
-	</a>
-	</div>
-	<div style="
-	display: inline-block;
-    width: 175px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-	"
-	class="vimh" title="Username: '.$rows[$x]["Username"].'">
-	<a href="../../x/?username='.$rows[$x]["Username"].'">' .$rows[$x]["Username"].'</a>
-	</div>
+
 	<div style="display:inline-block; float:right;">
-	<small style="font-size:9px;" title="'.$rows[$x]["Count(ratings.ID)"].' likes"> '.$rows[$x]["Count(ratings.ID)"].'
+	<small style="vertical-align:middle; font-size:9px;" title="'.$rows[$x]["Count(ratings.ID)"].' likes"> '.$rows[$x]["Count(ratings.ID)"].'
 	<img width="16px" src="/images/like.svg"/>
 	</small>
 	|
 	<span style="vertical-align: middle;" title="Country: ' .$rows[$x]["CountryID"].'" class="flag-icon flag-icon-'. strtolower($rows[$x]["CountryID"]).'"></span>
+	</div>	
+	<div style="display:inline;">
+	<a href="download.php?ID='.$id.'" title="Download: '.$rows[$x]["Username"].'.zip">
+	<img style="vertical-align:middle;margin-top:-3px;" width="25px" src="/images/download.svg"/>
+	</a> |
 	</div>
-	<div style="margin-top:-5px;">
-	<small style="font-size: 11px;">
-	<a href="?page=1&order=hits&direction='.$newdirection5.'">'.$hits.'</a>
+	<div style="display: inline-block; width: 175px; white-space: nowiurap; overflow: hidden; text-overflow: ellipsis; vertical-align: middle;"	class="vimh" title="Username: '.$rows[$x]["Username"].'">
+	<a href="../../x/'.$rows[$x]["Username"].'">' .$rows[$x]["Username"].'</a>
+	</div>
+	<div>
+	<small style="font-size: 12px;">
+	<a style="font-size: 18px;" href="?page=1&order=hits&direction='.$newdirection5.'&title=">'.$hits.'</a>
 	<small>
 	<img height="12px" src="/images//mouse.svg" /> '.
 	$rows[$x]["Hits"]
 	. ' | </small>
-	<a href="?page=1&order=zipsize&direction='.$newdirection6.'">'.$zipsize.'</a>
+	<a style="font-size: 18px;"  href="?page=1&order=zipsize&direction='.$newdirection6.'&title=">'.$zipsize.'</a>
 	<img width="12px" src="/images/hard.svg" />
 	<small>' . round(($rows[$x]["ZipSize"]) / 1024 , 1). ' megabytes</small>
 	|
-	<a href="?page=1&order=date&direction='.$newdirection3.'">'.$date.'</a>
+	<a style="font-size: 18px;" href="?page=1&order=date&direction='.$newdirection3.'&title=">'.$date.'</a>
 	<img width="12px" src="../../images/calendar.svg" />
 	<small class="mypopups" >'.$rows[$x]["DateTime"].'
-	</small>	</small>
+	</small>	</small><br/>
 	</div>
 	</div>
 	<hr/>	
@@ -167,7 +173,7 @@ $directionget = $_GET["direction"];
 echo '<p style="text-align:center;" class="vimh"> | ';
 	for( $i = 0; $i <= $result->num_rows/8; $i++ ) {
 		$p=$i + 1;
-		echo $_GET["page"]==$p? "<span>$p</span> | ":" <a href='?page=$p&order=$orderget&direction=$directionget'>$p</a> | ";
+		echo $_GET["page"]==$p? "<span style='color:black'>$p</span> | ":" <a href='?page=$p&order=$orderget&direction=$directionget&title='>$p</a> | ";
 		}
 echo '</p>';
 } else {
@@ -176,13 +182,16 @@ echo '</p>';
 $conn->close();
 
 ?><hr/>
-<a href="../quickstart/">
-<p style="text-align:center; padding: 5px;" class="my-nav-tab-a vimh">
-		Quickstart
-		<img style="vertical-align:middle;"  width="22px" src="../../images/quickstart.svg"/>
-		Catalog
-</p>
-</a></div>
+	<div class="row">
+	<a href="../quickstart/">
+	<p style="text-align:center; padding: 5px;" class="my-nav-tab-a vimh">
+			Quickstart
+			<img style="vertical-align:middle;"  width="22px" src="../../images/quickstart.svg"/>
+			Catalog
+	</p>
+	</a>
+	</div>
+</div>
 	<div class="row">
 <?php include '../../footer.php';?>
 	</div>
@@ -194,6 +203,30 @@ $( document ).ready(function() {
   $("#myloader").css("display","none");
   $("#mybody").css("display","block");
 
+});
+</script>
+<script>
+const input = document.getElementById('search');
+
+input.addEventListener('keydown', function(event) {
+    // Check if the pressed key is Enter
+    if (event.key === 'Enter') {
+        const site = input.value.trim();
+        if (site) {
+            // Navigate to the site, add https:// if needed
+      
+            window.location.href = "/catalog/community/?page=1&order=title&direction=desc&title=" + site;
+			
+			
+			;
+        }
+    }
+});
+</script>
+<script>
+$( document ).ready(function() {
+	const title = new URLSearchParams(window.location.search).get("title");
+	document.getElementById("search").value = title;
 });
 </script>
 	</body>

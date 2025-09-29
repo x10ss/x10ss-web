@@ -30,17 +30,17 @@
 
 	<div class="container"><div class="row">
 		<?php include '../header.php';?>
-		<?php include '../where-am-i-navigation.php';?>
 	</div>
 	<div class="row">
 	<h2 style="text-align:center;"><img src="/images/catalog.svg" width="36px"> catalog</h2>
-	<hr/>
+
 </div>
+	<hr/>
 	<div class="row">
 	 
 	 <div class="col-md-6">
 	 
-	<a href="community/?page=1&order=ratings&direction=desc">
+	<a href="community/?page=1&order=ratings&direction=desc&title=">
 	<p style="color:Tomato;text-align:center;" class="vimh">
 	 Community
 	<img width="36px" style="vertical-align:middle;"  src="/images/community.svg"/>
@@ -51,7 +51,7 @@
 	</small>
 	</p>
 	</a>
-	<div class="row">
+	<div style="margin-left: 10px;" class="row">
 
 
 	<?php
@@ -66,9 +66,6 @@
 	if ($conn->connect_error) {
 	  die("Connection failed: " . $conn->connect_error);
 	}
-
-
-
 	$sql = 
 	"SELECT boilpack.ExProID, boilpack.ID, boilpack.DateTime, boilpack.Username, boilpack.CountryID, boilpack.DonateUrl, Count(ratings.ID)
 	FROM boilpack
@@ -78,17 +75,18 @@
 	LIMIT 19"
 	;
 	$result = $conn->query($sql);
-
+	$race = "";
 	if ($result->num_rows > 0) {
 	  // output data of each row
 	  // output data of each row
 	  $rows = $result->fetch_all(MYSQLI_ASSOC);
 	  for($i=0; $i<19 ; $i++){
+
+		  $race = $race . $rows[$i]["CountryID"] . ";";
 	  if($i==0) 
 	  {
 		  echo '
 		<div class="col-md-12 my-nav-tab-a" style="
-		padding:5px;
 		color:gray;
 		text-align: center;
 		position: relative;
@@ -99,7 +97,6 @@
 	  else if($i<3) 
 	  echo '
 		<div class="col-md-6 my-nav-tab-a" style="
-		padding:5px;
 		color:gray; 
 		text-align: center;
 		position: relative;
@@ -109,7 +106,6 @@
 		overflow: hidden;"';
 		else echo '
 		<div class="col-md-3 my-nav-tab-a" style="
-		padding:5px;
 		color:gray; 
 		text-align: center;
 		position: relative;
@@ -126,15 +122,15 @@
 		{
 			echo'<img width="12px" src="/images/trophy.svg"/>';
 		}
-		if($i!==18) echo ' # ' . $i + 1;
+		if($i!==19) echo ' # ' . $i + 1;
 		echo '</b>';
 		if($i==0) echo ' ranking </small></small>
 		<hr/>
 		<br/>
 		
 		<span class="vimh" title="' . $rows[$i]["Count(ratings.ID)"] . ' likes"> 
-		' . $rows[$i]["Count(ratings.ID)"] . '<img style="vertical-align:middle;" width="27px" src="/images/ranking.svg"/>
-		<a href="/x/?username=' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
+		' . $rows[$i]["Count(ratings.ID)"] . '<img style="vertical-align:middle;" width="36px" src="/images/ranking.svg"/>
+		<a href="/x/' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
 		</span>
 		
 		<br/>
@@ -147,7 +143,7 @@
 		' . $rows[$i]["Count(ratings.ID)"] . '<img style="vertical-align:middle;" width="18px" src="/images/like.svg"/> 
 		
 	
-		<a href="/x/?username=' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
+		<a href="/x/' . $rows[$i]["Username"] . '">' . $rows[$i]["Username"] . '</a>
 		</span>
 		
 		<br/>
@@ -179,7 +175,7 @@
 		<br/>
 		<br/>
 		';	
-		} else if($i!==18) {
+		} else if($i!==19) {
 			echo '
 
 	<span title="Country: ' .$rows[$i]["CountryID"] . '" class="flag-icon flag-icon-'. strtolower($rows[$i]["CountryID"]).'"></span>
@@ -191,8 +187,6 @@
 	<br/>
 	';
 			
-		}else{
-			echo '<a href="community/?page=1&order=title&direction=desc">• • •</a>';
 		}
 		echo '</small>';
 		
@@ -203,25 +197,47 @@
 	  
 	  //if($i==1) echo '<br style="display:none" class="brshow" />';
 	  
-	  if($i==2) echo '<div class="brshow" style="display:none; text-align:center;"><hr/><small id="community-readmore-show-2" class="chop link">► show top twelwe</small><br/></div>';
+	  if($i==2) echo '<div class="brshow" style="display:none; text-align:center;"><hr/><small id="community-readmore-show-2" class="chop link">► show top nineteen</small><br/></div>';
 	  
 	  if($i==18) echo '<div class="brshow-2" style="display:none; text-align:center;">
 	  <hr/>
 	 
-	  <small class="chop link"><a href="community/?page=1&order=ratings&direction=desc">show all → </a></small><br/></div>';
+	  <small class="chop link"><a href="community/?page=1&order=ratings&direction=desc&title=">show all → </a></small><br/></div>
+	  	</div>
+	<hr/>';
 
 
 	}
 	} else {
 	  echo "0 results";
-	}
-	$conn->close();
-
-	?>
+	}$conn->close();
 	
-	</div>
-	<hr/>
-	<div class="row">
+	$list = explode(";", $race);
+
+// 2. Count occurrences
+$counts = array_count_values($list);
+
+// 3. Sort by frequency (descending)
+arsort($counts);
+
+// 4. Get top 3
+$top3 = array_slice($counts, 0, 3, true);
+$keys= array_keys($top3);
+
+$values= array_values($top3);
+$percent1 =  $values[0];  
+$percent2 =  $values[1];  
+$percent3 =  $values[2];
+$ukupan_broj  = $values[0]+$values[1]+$values[2];
+
+  $percent1 = $percent1 / $ukupan_broj * 100;
+  $percent2 = $percent2 / $ukupan_broj * 100;
+  $percent3 = $percent3 / $ukupan_broj * 100;
+  
+  $percent1 = $rounded = round( $percent1, 0);
+  $percent2 = $rounded = round($percent2, 0);
+  $percent3 = $rounded = round( $percent3, 0);
+	echo '<div class="row">
 	<p style="text-align:center;" class="chop">
 	<small>
 	SUPER RACE LIST
@@ -232,35 +248,38 @@
 	<div class="col-md-1">
 	</div>
 	<div class="col-md-10">
-
-	<div class="row">
-	
+';
+echo'
+	<div style="margin-left: 5px;" class="row">
 <div class="progress" style="padding-left:0px; background: linear-gradient(180deg, rgba(255,235,205,0.5) 90%, tomato 100%);">
-<span title="Country: HR" class="flag-icon flag-icon-hr"></span>
-  <div class="progress-bar vimh" role="progressbar" style="width: 55%; background-color: tomato ;"  aria-valuenow="55" aria-valuemin="55" aria-valuemax="100">55 *</div>
+<span title="Country: HR" class="flag-icon flag-icon-'. $keys[0] .'"></span>
+  <div class="progress-bar vimh" role="progressbar" style="width: '.$percent1.'%; background-color: tomato ;"  aria-valuenow="55" aria-valuemin="55" aria-valuemax="100">'.$values[0] .'</div>
 </div>
 </div>
 <br/>
-<div class="row">
+<div style="margin-left: 5px;" class="row">
 
 <div class="progress" style="padding-left:0px; background: linear-gradient(
 180deg, rgba(255,235,205,0.5) 90%, tomato 100%);">
-  <span title="Country: AU" class="flag-icon flag-icon-au"></span>
-  <div class="progress-bar vimh" role="progressbar" style="width: 15%; background-color: tomato ;"  aria-valuenow="15"  aria-valuenow="15" aria-valuemax="100">15 *</div>
+  <span title="Country: AU" class="flag-icon flag-icon-'. $keys[1] .'"></span>
+  <div class="progress-bar vimh" role="progressbar" style="width: '.$percent2.'%; background-color: tomato ;"  aria-valuenow="15" aria-valuemax="100">'.$values[1] .'</div>
 </div>
 </div>
 <br/>
-<div class="row">
+<div style="margin-left: 5px;" class="row">
 <div class="progress" style="padding-left:0px; background: linear-gradient(
 180deg, rgba(255,235,205,0.5) 90%, tomato 100%);">
-  <span title="Country: RO" class="flag-icon flag-icon-ro"></span>
-  <div class="progress-bar vimh" role="progressbar" style="width: 9%; background-color: tomato ;" aria-valuenow="9" aria-valuemin="9" aria-valuemax="100">9 *</div>
+  <span title="Country: RO" class="flag-icon flag-icon-'. $keys[2] .'"></span>
+  <div class="progress-bar vimh" role="progressbar" style="width: '.$percent3.'%; background-color: tomato ;" aria-valuenow="9" aria-valuemin="9" aria-valuemax="100">'.$values[2].'</div>
 </div>
 </div>
 	</div>
 	
 	</div>
-	<hr/>
+	<hr/>'
+	?>
+	
+
  </div>
 	<div class="col-md-6">
 	
@@ -392,7 +411,7 @@
 		</a>
 		<br/>
 		</small>
-		<span  class="link" id="show-fav">→ Fav 0 Lit</span> • <span class="vimh">ZIP</span> | <img width="12px" src="/images/favolit.svg"/> various <br/>
+		<span  class="link" id="show-fav">→ Fav 0 Lit</span> • <span class="vimh">ZIP</span> | various <br/>
 		<small id="fav-show" class="hide">	
 		<b>joomla.xml</b> | joommla extension xml<br/>
 		<b>macro.xlsm</b> | excel macro example<br/>
@@ -483,7 +502,7 @@ $("#community-readmore-show-2").click(function(){
 		$rn18.css("display","inline-block");
 		$rn19.css("display","inline-block");
 		$br.css("display","block");
-		$(this).html("▼ <u>hide top twelwe</u>");
+		$(this).html("▼ <u>hide top nineteen</u>");
 		}
 	else{
 		$rn3.css("display","none");
@@ -504,7 +523,7 @@ $("#community-readmore-show-2").click(function(){
 		$rn18.css("display","none");
 		$rn19.css("display","none");
 		$br.css("display","none");
-		$(this).text("► show top twelwe");
+		$(this).text("► show top nineteen");
 	}
 });
 $("#community-readmore-show").click(function(){
@@ -565,7 +584,7 @@ $("#community-readmore-show").click(function(){
 		$rn17.css("display","none");
 		$rn18.css("display","none");
 		$rn19.css("display","none");
-		$("#community-readmore-show-2").text("► show top twelwe");	
+		$("#community-readmore-show-2").text("► show top nineteen");	
 		$br2.css("display","none");		
 		}
 });
