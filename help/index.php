@@ -48,18 +48,19 @@
   </div>
   <br/>
 </div>
-<div class="col-md-4">
+<div style="padding: 15px;" class="col-md-4">
 </br>
 <h3 style="text-align:center" class="chop">
 faq
 <img src="/images/forum.svg" style="vertical-align:top;" width="25px"/>
 </h3>
-	<p id='Howtoinstallrunanduninstall' class='link chop' style='text-align:center;'>
-	► How to install run and uninstall
+<hr/>
+	<!--<p id='Howtoinstallrunanduninstall' class='link chop' style='text-align:center;'>
+	► how to install, run and uninstall
 	</p>
 	<small class='chop' id='Howtoinstallrunanduninstallshow' style='display:none'>
-	<p>Install from <a href="/download">download.extensionless.com</a> or download the setup.exe file <a href="https://download.extensionless.com/setup.exe">here</a>.</p><p>When you install the app you'll find the shorcut on your desktop and programs under start... If you're having troubles running the app dowload <a href="https://download.extensionless.com/pq.application">this file</a>.</p><p>You can uninstall the app by going to your add/remove programs Windows menu.</p><p>View <a href="https://www.download.extensionless.com/publish.htm">publish details</a>...</p>
-	</small>
+	<p>download the setup.exe file <a href="/">here</a>.</p><p>when you install the app you'll find the shorcut on your desktop and programs under start... if you're having troubles running the app dowload <a href="/download/pq.application">this file</a>.</p><p>you can uninstall the app by going to your add/remove programs windows menu.</p><p>view <a href="/download/publish.htm">publish details</a>...</p>
+	</small>-->
 	<script>
 	
 	
@@ -80,18 +81,18 @@ faq
 	</script>
 	
 	<p  id='Myaccountandexhibit' class='link chop' style='text-align:center;'>
-	► My account and exhibit
+	► my account and exhibit
 	</p>
 	<small class='chop' id='Myaccountandexhibitshow' style='display:none'>
-	<p>To have your boilerplate pack exhibit zip file showcased under the Community Catalog in:</p>
+	<p>to have your boilerplate pack exhibit zip file showcased under the community catalog in:</p>
 <ul>
 <li> your app > catalog > community</li>
-<li><a href="/catalog" >catalog.extensionless.com</a> (if in top 3)</li>
-<li><a href="/community/">catalog.extensionless.com/community/</a></li>
+<li><a href="/catalog" >extensionless.com/catalog/</a> (if in top 3)</li>
+<li><a href="/catalog/community">extensionless.com/catalog/community/</a></li>
 </ul>
-<p>you need to create your Extensionless profile <b>in your Windows Extensionless installation</b> under "username" > account > create account... afterwards click the <b>exhibit</b> link in the same menu and upload the file.
+<p>you need to create your extensionless profile <b>in your windows extensionless installation</b> under "username" > account > create account... afterwards click the <b>exhibit</b> link in the same menu and upload the file.
 </p>
-<p><u>NOTE:</u><br/>Files from the <b>c:\users\user\documents\abc</b> are ziped and uploaded to the Extensionless.com server... The file limit in <b>MB (MegaByetes) is 50</b>.</p>
+<p>files from the <b>c:\users\user\documents\abc</b> are ziped and uploaded to the extensionless.com server... The file limit in <b>megabyetes is 5</b>.</p>
 	</small>
 	<script>
 	
@@ -113,11 +114,11 @@ faq
 	</script>
 	
 	<p onClick="setCurTime12()" id='Howtochooseafileextensionforthenewfilemenuandtemplateit' class='link chop' style='text-align:center;'>
-	► How to choose a file extension for the new file menu and template it
+	► add file extensions to new file context menu and template them
 	</p>
 	<small class='chop' id='Howtochooseafileextensionforthenewfilemenuandtemplateitshow' style='display:none'>
-	<p>Go to the switchbox find the file extension you need and click the radio/checkbox to enable the file in the new menu.</p>
-<p>To template click the plus icon and find the boilerplate file. Now every new file of that extension you create will have the selected file's content included in itself. For example select a html file with html, body, head, link, script... tags included. Type on from that, not from scratch.</p>
+	<p>go to the switchbox find the file extension you need and click the radio/checkbox to enable the file in the new menu.</p>
+	<p>to template click the plus icon and find the boilerplate file. now every new file of that extension you create will have the selected file's content included in itself. for example select a html file with html, body, head, link, script... tags included. type on from that, not from scratch.</p>
 	</small>
 	<script>
 	
@@ -139,10 +140,10 @@ faq
 	</script>
 	
 	<p id='Howtocreatenewfileextensions' class='link chop' style='text-align:center;'>
-	► How to create new file extensions
+	► how to create new file extensions
 	</p>
 	<small class='chop' id='Howtocreatenewfileextensionsshow' style='display:none'>
-	Go to your Extensionless application then go to <b>Utility > Forge</b> and click in the new row's name column and fill out the rest of the info. Don't forget to choose an appliction to open the files with and select it in the switchbox and template it.
+	go to your extensionless application then go to <b>utility > forge</b> and click in the new row's name column and fill out the rest of the info. don't forget to choose an appliction to open the files with and select it in the switchbox and template it.
 	</small>
 	<script>
 	
@@ -168,14 +169,14 @@ faq
 </div>
 </div>
 <hr/>
-<div class="row" style="margin-bottom:13px; text-align:center;">
-	<div class="col-md-6">
+<div class="row" style="text-align:center;">
+	<div style="padding:15px" class="col-md-6">
 	<a style="vertical-align:middle; font-size: 24px;" class="chop" href="/support" title="support">
 	<img src="/images/support.svg" width="44px"/>
 	support
 	</a>
 	</div>
-	<div class="col-md-6">
+	<div style="padding:15px" class="col-md-6">
 	<a style="vertical-align:middle; font-size: 24px;" class="chop" href="/news" title="news">
 	<img src="/images/news-active.svg"  width="44x"/>
 	news

@@ -53,40 +53,43 @@
 	$newdirection5= $order=="hits"?$direction=="asc"?"desc":"asc":"desc";
 	$newdirection6= $order=="zipsize"?$direction=="asc"?"desc":"asc":"desc";
  
-
+$mytitle=$_GET['title'];
 	echo "
 	
-	<div class='row'>	
-	<div class='col-md-10'>
-	
-	<input style='border: none;
+	<div class='row' style='padding: 0px;'>	
+	<div class='col-md-11'>
+	<p>
+	<input class='chop' style='border: none;
 	  border-bottom: 
 	  2px solid tomato; 
 	  border-top: 1px outset tomato;
 	  border-left: 2px solid tomato;
 	  border-right: 2px solid tomato;
 	  border-radius:12px;
-	  max-width:250px'
+	  max-width:250px;
+	  margin-left: 10px;
+	  '
 	  id='search'
-	  placeholder=' search'>
-
+	  placeholder=' search'
+	  >
+<a style='visibility:hidden;' id='cancel' href='?page=1&order=ratings&direction=desc&title='><img src='/images/cancel.svg' width='19px'/></a>
   </p>
 </div>
-	<div class='col-md-2'>
-	<p>
-	<a href='?page=1&order=ratings&direction=$newdirection2&title='>$ratings</a>
+	<div style='padding: 0px;' class='col-md-1'>
+	<span style='float: right;'>
+	<a href='?page=1&order=ratings&direction=$newdirection2&title=$mytitle'>$ratings</a>
 
-	<a style='margin-left:16px;' href='?page=1&order=country&direction=$newdirection4&title='>$country</a>
-</p>
+	<a style='margin-left:16px;' href='?page=1&order=country&direction=$newdirection4&title=$mytitle'>$country</a>
+</span>
 </div></div>
 	<hr/>";
-
-
 
 	$servername = "localhost";
 	$username = "root";
 	$db = "x10ss";
 	$password = "";
+
+
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $db);
@@ -108,7 +111,8 @@ $newestdirection=strtoupper($_GET["direction"]);
 	
 	
 	$issearch = $_GET["title"];
-	$sqlwhereclause =$issearch == "" ? "" : "WHERE boilpack.Username LIKE '%$issearch%'";
+	$cleanString = preg_replace("/[^a-zA-Z0-9 _-]/", "", $issearch);
+	$sqlwhereclause =$cleanString == "" ? "" : "WHERE boilpack.Username LIKE '%$cleanString%'";
 
 
 
@@ -148,16 +152,16 @@ for($x = 0; $x < $arrlength; $x++) {
 	</div>
 	<div>
 	<small style="font-size: 12px;">
-	<a style="font-size: 18px;" href="?page=1&order=hits&direction='.$newdirection5.'&title=">'.$hits.'</a>
+	<a style="font-size: 18px;" href="?page=1&order=hits&direction='.$newdirection5.'&title='. $issearch.'">'.$hits.'</a>
 	<small>
 	<img height="12px" src="/images//mouse.svg" /> '.
 	$rows[$x]["Hits"]
 	. ' | </small>
-	<a style="font-size: 18px;"  href="?page=1&order=zipsize&direction='.$newdirection6.'&title=">'.$zipsize.'</a>
+	<a style="font-size: 18px;"  href="?page=1&order=zipsize&direction='.$newdirection6.'&title='. $issearch.'">'.$zipsize.'</a>
 	<img width="12px" src="/images/hard.svg" />
 	<small>' . round(($rows[$x]["ZipSize"]) / 1024 , 1). ' megabytes</small>
 	|
-	<a style="font-size: 18px;" href="?page=1&order=date&direction='.$newdirection3.'&title=">'.$date.'</a>
+	<a style="font-size: 18px;" href="?page=1&order=date&direction=' . $newdirection3 .'&title=' . $issearch.'">'.$date.'</a>
 	<img width="12px" src="../../images/calendar.svg" />
 	<small class="mypopups" >'.$rows[$x]["DateTime"].'
 	</small>	</small><br/>
@@ -173,11 +177,11 @@ $directionget = $_GET["direction"];
 echo '<p style="text-align:center;" class="vimh"> | ';
 	for( $i = 0; $i <= $result->num_rows/8; $i++ ) {
 		$p=$i + 1;
-		echo $_GET["page"]==$p? "<span style='color:black'>$p</span> | ":" <a href='?page=$p&order=$orderget&direction=$directionget&title='>$p</a> | ";
+		echo $_GET["page"]==$p? "<span style='color:black'>$p</span> | ":" <a href='?page=$p&order=$orderget&direction=$directionget&title=$issearch'>$p</a> | ";
 		}
 echo '</p>';
 } else {
-  echo "0 results";
+  echo "<span class='chop'>0 results</span>";
 }
 $conn->close();
 
@@ -228,6 +232,15 @@ $( document ).ready(function() {
 	const title = new URLSearchParams(window.location.search).get("title");
 	document.getElementById("search").value = title;
 });
+</script>
+
+<script>
+const title = new URLSearchParams(window.location.search).get("title")
+
+if (title != "")
+	document.getElementById("cancel").style.visibility = "visible";
+else
+	document.getElementById("cancel").style.visibility = "hidden";
 </script>
 	</body>
 </html>
